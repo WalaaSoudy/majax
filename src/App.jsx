@@ -1,40 +1,32 @@
-import './App.css';
-import Register from './components/Auth/Register';
-import { RouterProvider, createHashRouter } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './components/Home/Home';
 import Login from './components/Auth/Login';
-import { Toaster } from 'react-hot-toast';
-
-
-const router = createHashRouter(
-  [
-    { path: '/login', element: <Login />, },
-    { path: '/register', element: <Register />, }
-
-  ])
+import Register from './components/Auth/Register';
+import Contact from './components/Contact/Contact';
+import Profile from './components/Profile/Profile';
+import Request from './components/Request/Request';
+import Shipment from './components/Shipment/Shipment';
+import Warehouse from './components/Warehouse/Warehouse';
+import AddRequest from './components/Request/AddRequest';
 
 function App() {
-  return (
-    <>
-      <RouterProvider router={router} />
-      <Toaster
-        position='bottom-right'
-        toastOptions={{
-          success: {
-            style: {
-              background: '#28a745',
-              color: '#fff',
-            },
-          },
-          error: {
-            style: {
-              background: '#dc3545',
-              color: '#fff',
-            },
-          },
-        }}
-      />
-    </>
-  );
+    return (
+        <Router basename="/Majex">
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/request" element={<Request />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/addrequest" element={<AddRequest/> } />
+                <Route path="/shipment" element={<Shipment/> } />
+
+                <Route path="/warehouse" element={<Warehouse />} />
+            </Routes>
+        </Router>
+    );
 }
 
 export default App;

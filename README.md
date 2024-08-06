@@ -1,1 +1,1 @@
-# majax
+# Majex
